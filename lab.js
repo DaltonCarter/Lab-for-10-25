@@ -258,6 +258,9 @@ class Cat {
   }
 }
 
+let meow1 = new Cat('Fluffles', 2, 'Orange')
+console.log(meow1.name)
+
 //////////////////////////// PROBLEM 13 ////////////////////////////
 /*
   Create a class called 'Wizard'. Make sure to call your constructor, and require these 3 parameters: name, age, favoriteSpell.
@@ -267,6 +270,21 @@ class Cat {
 */
 
 //Code here
+
+class Wizard{
+  constructor(name, age, favoriteSpell){
+    this.name = name
+    this.age = age
+    this.favoriteSpell = favoriteSpell
+  }
+
+  castSpell(){
+    console.log(`${this.name} has cast ${this.favoriteSpell}!`)
+  }
+}
+
+let wiz1 = new Wizard('Fizban', 350, 'Flaerf Bowl...wait thats not right...Flare Bomb...nope not that one either...AH now I got it, FIREBALL!')
+wiz1.castSpell()
 
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
@@ -293,6 +311,24 @@ class Cat {
 
 //Code Here
 
+class Phone{
+  constructor(brand, model, storage, color, price){
+    this.brand = brand
+    this.model = model
+    this.storage = storage
+    this.color = color
+    this.price = price
+    this.sold = false
+  }
+  sell(){
+     this.sold = true
+     console.log(`${this.brand} ${this.model} has been sold!`)
+  }
+  changePrice(newPrice){
+     this.price = newPrice
+     console.log(`${this.brand} ${this.model} is on sale!!`)
+  }
+}
   
 /*
     Next make three new phone instances using your class.
@@ -306,6 +342,12 @@ class Cat {
 
 //Code Here
 
+let cell1 = new Phone('Google', 'Pixel 3a', 64 + 'gb', 'Red', '$' + 350)
+let cell2 = new Phone('Samsung', 'Galaxy 7', 64 + 'gb', 'White', '$' + 550)
+let cell3 = new Phone('Apple', 'Iphone 11', 128 + 'gb', 'Black', '$' + 800)
+
+console.log(cell1, cell2, cell3)
+
 /* 
   Call the changePrice function on one of your phones, 
   don't forget to pass in a new price 
@@ -315,6 +357,7 @@ class Cat {
 
 //Code Here 
 
+cell3.changePrice(600)
 
 /*
   Now call the sell method on one of your other phone objects
@@ -324,13 +367,16 @@ class Cat {
 
 //Code Here 
 
+cell1.sell()
+console.log(cell1.sold)
 
 //////////////////////////// PROBLEM 15 ////////////////////////////
 
 /*
   Use the spread operator to create a copy of the colors object below.
   Store the copy in a variable called colorsCopy.
-  Note: We did not cover the spread operator in class. We do not expect you to know how to use it. Challenge yourself by going online and researching what the spread operator is and how to use it.
+  Note: We did not cover the spread operator in class. We do not expect you to know how to use it. Challenge yourself by going online and researching what the spread 
+  operator is and how to use it.
 */
 
 //do not edit this object
@@ -343,6 +389,9 @@ const colors = {
 
 //Code Here 
 
+const colorsCopy =  {...colors}
+
+console.log(colorsCopy)
 
 
 /*
@@ -372,6 +421,10 @@ const shippingInfo = {
 //Code Here
 
 
+
+let helensInfo = {...contactInfo, ...shippingInfo}
+console.log(helensInfo)
+
 //Print helensInfo to see what it looks like, there should be no repeating properties.
 
 
@@ -389,6 +442,18 @@ const shippingInfo = {
 
 //Code Here 
 
+class Vehicle{
+  constructor(capacity, color, mileage){
+    this.capacity = capacity
+    this.color = color
+    this.mileage = mileage
+  }
+
+  move(miles){
+   this.mileage = this.mileage + miles 
+   console.log(`The vehicle has ${this.mileage} miles on it.`)
+  }
+}
 
 /*
   Create a vehicle using your new class and save it to a variable called myFirstVehicle
@@ -396,6 +461,9 @@ const shippingInfo = {
 
 //Code Here
 
+let myFirstVehicle = new Vehicle(4, 'Blue', 50000)
+
+console.log(myFirstVehicle)
 
 /* 
   Now we'll create a class that's based off of the vehicle class. 
@@ -407,15 +475,27 @@ const shippingInfo = {
 
 //Code Here
 
+class Motorcycle extends Vehicle {
+  constructor(capacity, color, mileage, make, isCool){
+    super(capacity, color, mileage)
+    this.make = make
+    this.isCool = isCool
+  }
+}
+
 /*
   Create a Motorcycle using your new class and save it to a variable called myFirstMotorcycle
 */
 
 //Code Here 
 
+let myFirstMotorcycle = new Motorcycle(2, 'Red', 10000, 'Harley Davidson', true)
+console.log(myFirstMotorcycle)
 /*
   Call the move function on myFirstMotorcycle (don't forget the parameter)
 */
+
+myFirstMotorcycle.move(250)
 
 /*
   Let's make another class based off of Vehicle. 
@@ -435,6 +515,26 @@ const shippingInfo = {
 
 //Code Here
 
+class Boat extends Vehicle{
+  constructor(capacity, color, mileage, name, type, isSeaworthy){
+    super(capacity, color, mileage)
+    this. name = name
+    this.type = type
+    this.isSeaworthy = isSeaworthy
+  }
+
+  checkSeaWorthiness(){
+    if (this.isSeaworthy === true){
+      console.log(` The ${this.color} ${this.type} ${this.name} is seaworthy!`)
+    }else {
+      console.log(`You need to get your ${this.type} in shape! `)
+    }
+  }
+
+  performMaintenance(){
+    this.isSeaworthy = true
+  }
+}
 
 /*
   Create a new boat using your class. You can choose whatever values you like for all the 
@@ -443,11 +543,16 @@ const shippingInfo = {
 
 //Code Here
 
+let myFirstBoat = new Boat(5, 'green', 500, 'U.S.S HowlatSea', 'Fishing Boat', false)
+console.log(myFirstBoat)
+
 /*
   Call the checkSeaworthiness method on your new boat
 */
 
 //Code Here
+
+myFirstBoat.checkSeaWorthiness()
 
 /*
   Now run the performMaintenance method on your boat
@@ -455,8 +560,12 @@ const shippingInfo = {
 
 //Code Here 
 
+myFirstBoat.performMaintenance()
+
 /*
   Check the seaworthiness once more (you should be ready for the water!)
 */
 
 //Code Here
+
+myFirstBoat.checkSeaWorthiness()
