@@ -51,12 +51,28 @@ console.log(dog['color'])
 
 //Code here
 
+let favoriteThings = {
+  band: 'Disturbed',
+  food: 'Beef Ramen',
+  person: 'Bruce Willis',
+  book: 'Dragonlance',
+  movie: 'The Fifth Element',
+  holiday: 'Any that I have the day off for.'
+}
+
+console.log(favoriteThings)
 
 /*
-  After you've made your object, use bracket or dot notation to add another key named 'car' with the value being your favorite car and then another key named 'show' with the value being your favorite show.
+  After you've made your object, use bracket or dot notation to add another key named 'car' 
+  with the value being your favorite car and then another key named 'show' with the value being your favorite show.
 */
 
 //Code here
+
+favoriteThings.car = ['Mustang Convertable']
+favoriteThings.show = ['The Witcher']
+
+console.log(favoriteThings)
 
 
 /*
@@ -65,6 +81,11 @@ console.log(dog['color'])
 */
 
 //Code here
+
+favoriteThings.food = 'Chicken Nuggets'
+favoriteThings.book = 'Harry Potter'
+
+console.log(favoriteThings)
 
 
 //////////////////////////// PROBLEM 6 ////////////////////////////
@@ -84,7 +105,9 @@ var carDetails = {
 
 //Code Here
 
+let {color, make, model, year} = carDetails
 
+console.log(color, make, model, year)
 
 //////////////////////////// PROBLEM 7 ////////////////////////////
 
@@ -94,15 +117,24 @@ var carDetails = {
   The property names are firstName, lastName, and title.
 */
 
+let me2 = {
+  firstName: 'Cylus',
+  lastName: 'Stark',
+  title: 'Lord'
+}
+
+
+
 function greeting( obj ) {
   //Code Here
-  
+  let {firstName, lastName, title} = obj
+
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
 }
 
-
+console.log(greeting(me2))
 
 //////////////////////////// PROBLEM 8 ////////////////////////////
 
@@ -116,8 +148,26 @@ function greeting( obj ) {
 
 //Code Here
 
+let statesPopulation = {
+  Utah: 3,
+  California: 39,
+  Texas: 28,
+  Arizona: 7
+}
+
+console.log(statesPopulation)
 
 
+
+function totalPopulation(obj){
+  let{Utah, California, Texas, Arizona} = statesPopulation
+
+  console.log(Utah, California, Texas, Arizona)
+  return Utah + California + Texas + Arizona + " Million"
+}
+
+sum = totalPopulation(statesPopulation)
+console.log(sum)
 //////////////////////////// PROBLEM 9 ////////////////////////////
 
 /*
@@ -130,6 +180,20 @@ function greeting( obj ) {
 
 //Code Here
 
+let nutrition = {
+  carb: 'Some',
+  fat: 'Too Much',
+  protein: 'Enough'
+}
+
+function ingredients(obj){
+  let{carb, fat, protein} = obj
+  let array = []
+  array.push(carb, fat, protein)
+  return array
+}
+
+console.log(ingredients(nutrition))
 
 
 //////////////////////////// PROBLEM 10 ////////////////////////////
@@ -152,6 +216,20 @@ var user = {
 
 //Code Here
 
+// let name = user.name
+// let email = user.email
+// console.log(name, email)
+
+// name = 'Bryan G. Smith'
+// email = 'bryan.smith@devmounta.in'
+
+console.log(user)
+
+user.name = 'Bryan G. Smith'
+user.email = 'bryan.smith@devmounta.in'
+
+console.log (user)
+
 
 //////////////////////////// PROBLEM 11 ////////////////////////////
 /*
@@ -160,6 +238,8 @@ var user = {
 
 //Code Here
 
+delete user.age
+console.log(user)
 
 //////////////////////////// PROBLEM 12 ////////////////////////////
 /*
@@ -170,7 +250,13 @@ var user = {
 
 //Code here
 
-
+class Cat {
+  constructor(name, age, color){
+    this.name = name
+    this.age = age
+    this.color = color
+  }
+}
 
 //////////////////////////// PROBLEM 13 ////////////////////////////
 /*
